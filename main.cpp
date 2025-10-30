@@ -98,7 +98,12 @@ int buildEncodingTree(int nextFree) {
     while (minheap.size > 1) {
         int left = minheap.pop(weightArr);
         int right = minheap.pop(weightArr);
+        weightArr[nextFree] = weightArr[left] + weightArr[right];
+        leftArr[nextFree] = left;
+        rightArr[nextFree] = right;
 
+        minheap.push(nextFree, weightArr);
+        nextFree++;
     }
 
     return minheap.pop(weightArr);
