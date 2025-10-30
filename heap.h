@@ -16,7 +16,7 @@ struct MinHeap {
 
     void push(int idx, int weightArr[]) {
         data[size] = idx;
-        upheap(size, weightArr); // TODO implement upheap!!
+        upheap(size, weightArr);
         size++;
     }
 
@@ -38,7 +38,19 @@ struct MinHeap {
     }
 
     void upheap(int pos, int weightArr[]) {
-        // TODO: swap child upward while smaller than parent
+        while (pos > 0) {
+            int parent = (pos - 1) / 2;
+
+            if (weightArr[data[pos]] >= weightArr[data[parent]]) {
+                break;
+            }
+
+            int temp = data[pos];
+            data[pos] = data[parent];
+            data[parent] = temp;
+
+            pos = parent;
+        }
     }
 
     void downheap(int pos, int weightArr[]) {

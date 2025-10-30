@@ -94,6 +94,14 @@ int buildEncodingTree(int nextFree) {
     for (int i = 0; i < nextFree; i++) {
         minheap.push(i, weightArr);
     }
+
+    while (minheap.size > 1) {
+        int left = minheap.pop(weightArr);
+        int right = minheap.pop(weightArr);
+
+    }
+
+    return minheap.pop(weightArr);
 }
 
 // Step 4: Use an STL stack to generate codes
